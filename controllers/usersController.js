@@ -83,14 +83,3 @@ export const loginUser = async (req, res )=>{
     if(!user){
       res.status(404).json({message: "no user found"})
     } 
-let match = await compare(password, user.password)
-if (!match){
-  res.status(404).json({message: "invalid password"})
-}
-
-    res.status(200).json(user)
-  } catch (error) {
-    res.status(400).json({message: error.message})
-  }
-  
-}
